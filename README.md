@@ -36,13 +36,13 @@ Each rule has three fields:
 Examples
 --------
 
-1. To replace `[[WikiLink]]` with a link to Wikipedia.
+1) To replace `[[WikiLink]]` with a link to Wikipedia.
 
 **Pattern:** `\[\[(.*)\]\]`
 **Replacement:** `<a href="http://en.wikipedia.com/wiki/$1">$1</a>`
 
 
-2. To replace BUG-1234 with a link to bug number 1234 in the main mantis
+2) To replace BUG-1234 with a link to bug number 1234 in the main mantis
 project bug tracker:
 
 **Pattern:** `BUG-([0-9]+)`
@@ -50,7 +50,7 @@ project bug tracker:
 **Replacement:** `<a href="http://www.mantisbt.org/bugs/view.php?id=$1">$0</a>`
 
 
-3. To replace {bug} with an emoji bug,
+3) To replace {bug} with an emoji bug,
 
 **Pattern:** `\{bug\}`
 
