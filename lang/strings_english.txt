@@ -1,0 +1,52 @@
+<?php
+# AutoLink plugin - a MantisBT plugin for linking text
+#
+# Copyright (C) 2014 The Maker - make-all@users.github.com
+#
+# AutoLink plugin is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+$s_plugin_AutoLink_title = 'AutoLink';
+$s_plugin_AutoLink_description = 'Make automatic links to other systems.';
+
+$s_plugin_AutoLink_install_message = 'CAUTION: Installing this plugin will disable the default MantisBT text and URL formatting.';
+
+$s_plugin_AutoLink_process_text = 'Create links in text';
+$s_plugin_AutoLink_process_urls = 'Auto link to URLs';
+$s_plugin_AutoLink_process_buglinks = 'Auto link to bugs';
+$s_plugin_AutoLink_process_vcslinks = 'Auto link to Source Control';
+
+$s_plugin_AutoLink_config = 'Configuration';
+$s_plugin_AutoLink_enabled = 'On';
+$s_plugin_AutoLink_disabled = 'Off';
+
+$s_plugin_AutoLink_rules_list_title = 'Auto Links';
+$s_plugin_AutoLink_rule_project = 'Project';
+$s_plugin_AutoLink_rule_regexp = 'Pattern';
+$s_plugin_AutoLink_rule_replace = 'Replacement';
+$s_plugin_AutoLink_action_edit = 'Edit';
+$s_plugin_AutoLink_action_delete = 'Delete';
+$s_plugin_AutoLink_action_go = 'Go';
+$s_plugin_AutoLink_action_update = 'Update';
+$s_plugin_AutoLink_create_title = 'New AutoLink';
+$s_plugin_AutoLink_create_project = 'Project';
+$s_plugin_AutoLink_create_regexp = 'Pattern';
+$s_plugin_AutoLink_create_replace = 'Replacement';
+$s_plugin_AutoLink_action_create = 'Save';
+$s_plugin_AutoLink_action_delete_confirm = 'Do you really want to delete the following rules?';
+$s_plugin_AutoLink_edit_title = 'Edit Auto Links';
+$s_plugin_AutoLink_error_regexp_empty = 'The Auto Link pattern is empty.';
+$s_plugin_AutoLink_error_replace_empty = 'The Auto Link replacement is empty.';
+$s_plugin_AutoLink_config_title = "Auto Link Configuration";
+$s_plugin_AutoLink_edit_threshold = 'Edit Auto Link Rules';
