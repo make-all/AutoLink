@@ -23,38 +23,43 @@
    print_manage_menu();
 ?>
 <br />
+<div id="formatting-config-div" class="form-container">
 <form action="<?php echo plugin_page('config') ?>" method="post">
 <?php echo form_security_field("plugin_AutoLink_config") ?>
-<table class="width60" align="center">
-  <tr>
-    <td class="form-title" colspan="2"><?php echo plugin_lang_get("config_title") ?></td>
-  </tr>
-  <tr <?php echo helper_alternate_class() ?>>
-    <td class="category"><?php echo plugin_lang_get('edit_threshold') ?></td>
-    <td><select name="edit_threshold"><?php print_enum_string_option_list('access_levels', plugin_config_get('edit_threshold')) ?></select></td>
-  </tr>
-  <tr <?php echo helper_alternate_class() ?>>
+<table>
+	<thead>
+	<tr>
+	    <td class="form-title" colspan="2"><?php echo plugin_lang_get("config_title") ?></td>
+	</tr>
+	</thead>
+	<tbody>
+	    <tr>
+		<td class="category"><?php echo plugin_lang_get('edit_threshold') ?></td>
+		<td><select name="edit_threshold"><?php print_enum_string_option_list('access_levels', plugin_config_get('edit_threshold')) ?></select></td>
+	    </tr>
+	    <tr>
     <td class="category"><?php echo plugin_lang_get('process_text') ?></td>
     <td><input type="checkbox" name="process_text" <?php echo ( plugin_config_get('process_text') ? 'checked="checked" ' : '') ?>/></td>
   </tr>
-  <tr <?php echo helper_alternate_class() ?>>
+  <tr>
     <td class="category"><?php echo plugin_lang_get('process_urls') ?></td>
     <td><input type="checkbox" name="process_urls" <?php echo ( plugin_config_get('process_urls') ? 'checked="checked" ' : '') ?>/></td>
   </tr>
-  <tr <?php echo helper_alternate_class() ?>>
+  <tr>
     <td class="category"><?php echo plugin_lang_get('process_buglinks') ?></td>
     <td><input type="checkbox" name="process_buglinks" <?php echo ( plugin_config_get('process_buglinks') ? 'checked="checked" ' : '') ?>/></td>
   </tr>
-  <tr <?php echo helper_alternate_class() ?>>
+  <tr>
     <td class="category"><?php echo plugin_lang_get('process_vcslinks') ?></td>
     <td><input type="checkbox" name="process_vcslinks" <?php echo ( plugin_config_get('process_vcslinks') ? 'checked="checked" ' : '') ?>/></td>
   </tr>
   <tr>
     <td class="center" colspan="2"><input type="submit" value="<?php echo plugin_lang_get('action_update') ?>" /></td>
   </tr>
+	</tbody>
 </table>
 </form>
-
+</div>
 <?php
    html_page_bottom();
 

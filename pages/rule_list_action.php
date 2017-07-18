@@ -53,37 +53,45 @@ elseif ($action == "edit") {
     html_page_top();
 ?>
 <br />
+<div id="formatting-config-div" class="form-container">
 <form action="<?php echo plugin_page('rule_list_action')?>" method="post">
   <?php echo form_security_field("plugin_AutoLink_rule_list_action") ?>
   <input type="hidden" name="action" value="update"/>
-  <table class="width75" align="center">
-    <tr>
+  <table>
+      <thead>
+      <tr>
       <td class="form_title" colspan="3"><?php echo plugin_lang_get("edit_title") ?></td>
-    </tr>
+      </tr>
+      </thead>
+      <tbody>
     <?php $first = true; foreach($rules as $rule): ?>
     <?php if (!$first): ?>
     <tr class="spacer"><td></td></tr>
     <?php endif ?>
-    <tr class="row-1">
+    <tr>
       <td class="center" rowspan="3"><input type="checkbox" name="rule_list[]" value="<?php echo $rule->id ?>" checked="checked" /></td>
       <td class="category"><?php echo plugin_lang_get("rule_project") ?></td>
     <td><select name="project_<?php echo $rule->id ?>" value="<?php echo $rule->project_id ?>"><?php print_project_option_list($rule->project_id, true) ?></select></td>
     </tr>
-    <tr class="row-2">
+    <tr>
       <td class="category"><?php echo plugin_lang_get("rule_regexp") ?></td>
       <td><input name="regexp_<?php echo $rule->id ?>" value="<?php echo $rule->regexp ?>" /></td>
     </tr>
-    <tr class="row-1">
+    <tr>
       <td class="category"><?php echo plugin_lang_get("rule_replace") ?></td>
       <td><input name="replace_<?php echo $rule->id ?>" value="<?php echo $rule->replace ?>" /></td>
     </tr>
     <?php $first = false; endforeach ?>
+      </tbody>
+      <tfoot>
     <tr>
       <td><input type="checkbox" class="rules_select_all" checked="checked" /></td>
       <td class="center" colspan="2"><input type="submit" value="<?php echo plugin_lang_get('action_edit') ?>" /></td>
     </tr>
+      </tfoot>
   </table>
 </form>
+</div>
 <?php
     html_page_bottom();
 }
