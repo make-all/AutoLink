@@ -36,7 +36,7 @@ class AutoLink {
             $query = "INSERT INTO {$table}
                                ( project_id, regex, repl )
                         VALUES ( ".db_param().", ".db_param().", ".db_param()." )";
-            db_query_bound($query, array(
+            db_query($query, array(
                 $this->project_id, $this->regexp, $this->replace));
             $this->id = db_insert_id($table);   
         }
@@ -46,7 +46,7 @@ class AutoLink {
                         regex=".db_param().",
                         repl=".db_param()."
                         WHERE id=".db_param();
-            db_query_bound($query, array(
+            db_query($query, array(
                 $this->project_id, $this->regexp, $this->replace, $this->id));
         }
     }
@@ -65,12 +65,12 @@ class AutoLink {
                 return array();
             $ids = implode(",", $ids);
             $query = "SELECT * FROM {$t_table} WHERE id IN ({$ids})";
-            $result = db_query_bound($query);
+            $result = db_query($query);
             return self::from_db_result($result);
         }
         else {
             $query = "SELECT * FROM {$t_table} WHERE id=".db_param();
-            $result = db_query_bound($query, array($id));
+            $result = db_query($query, array($id));
             $rules = self::from_db_result($result);
             return $rules[0];
         }
@@ -80,14 +80,14 @@ class AutoLink {
         $t_table = plugin_table('links');
         $t_query = "SELECT * FROM {$t_table}
                            WHERE project_id=".db_param();
-        $t_result = db_query_bound($t_query, array($p_proj));
+        $t_result = db_query($t_query, array($p_proj));
         return self::from_db_result($t_result);
     }
 
     public static function load_all() {
         $t_table = plugin_table('links');
         $t_query = "SELECT * FROM {$t_table}";
-        $t_result = db_query_bound($t_query);
+        $t_result = db_query($t_query);
         return self::from_db_result($t_result);
     }
 
@@ -100,18 +100,18 @@ class AutoLink {
             }
             $ids = implode(",", $ids);
             $query = "DELETE FROM {$t_table} WHERE id IN ({$ids})";
-            db_query_bound($query);
+            db_query($query);
         }
         else {
             $query = "DELETE FROM {$t_table} WHERE id=".db_param();
-            db_query_bound($query, array($id));
+            db_query($query, array($id));
         }
     }
 
     public static function delete_by_project_id($p_project) {
         $t_table = plugin_table('links');
         $query = "DELETE FROM {$t_table} WHERE project_id=".db_param();
-        db_query_bound($query, $p_project);
+        db_query($query, $p_project);
     }
 
     /**
