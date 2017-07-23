@@ -17,9 +17,11 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-   access_ensure_global_level(config_get("manage_plugin_threshold"));
+access_ensure_global_level(config_get("manage_plugin_threshold"));
 
-   html_page_top();
+layout_page_header( plugin_lang_get( 'title' ) );
+layout_page_begin();
+
    print_manage_menu();
 ?>
 <br />
@@ -61,5 +63,4 @@
 </form>
 </div>
 <?php
-   html_page_bottom();
-
+layout_page_end();

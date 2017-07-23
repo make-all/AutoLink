@@ -50,7 +50,8 @@ if ($action == "delete") {
 /* EDIT */
 elseif ($action == "edit") {
     $rules = AutoLink::clean($rules, "form");
-    html_page_top();
+    layout_page_header( plugin_lang_get('title') );
+	layout_page_begin();
 ?>
 <br />
 <div id="formatting-config-div" class="form-container">
@@ -93,7 +94,7 @@ elseif ($action == "edit") {
 </form>
 </div>
 <?php
-    html_page_bottom();
+layout_page_end();
 }
 elseif ($action == "update") {
     foreach($rules as $rule_id => $rule) {

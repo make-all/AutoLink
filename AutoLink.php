@@ -26,12 +26,12 @@ class AutoLinkPlugin extends MantisFormattingPlugin {
         $this->description = plugin_lang_get('description');
         $this->page = 'config_page';
 
-        $this->version = '1.0';
+        $this->version = '1.1';
         $this->requires = array(
-            'MantisCore' => '1.3.0',
+            'MantisCore' => '2.0.0',
         );
         $this->uses = array(
-            'MantisCoreFormatting' => '1.3.0',
+            'MantisCoreFormatting' => '2.0.0',
         );
         $this->author = 'The Maker';
         $this->contact = 'make-all@users.github.com';

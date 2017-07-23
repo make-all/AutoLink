@@ -21,7 +21,8 @@ access_ensure_global_level(plugin_config_get("edit_threshold"));
 
 $admin = access_has_global_level(config_get('manage_plugin_threshold'));
 
-html_page_top();
+layout_page_header( plugin_lang_get('title') );
+layout_page_begin();
 print_manage_menu();
 $rules = AutoLink::load_all();
 
@@ -106,4 +107,4 @@ $rules = AutoLink::load_all();
 </form>
 </div>
 <?php
-       html_page_bottom();
+layout_page_end();
