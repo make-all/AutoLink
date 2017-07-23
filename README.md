@@ -15,7 +15,12 @@ Clone this repository to a subdirectory inside your Mantis plugins directory.
 	cd /path/to/mantis/plugins
 	git clone https://github.com/make-all/AutoLink.git
 
-Then in the *Manage* menu of Mantis, enable the plugin.
+The following branches are available:
+mantis-1.2.x: Obsolete. No further changes are planned on this branch.
+mantis-1.3.x: Working, bugfixes for this branch will be accepted.
+master: Work in progress for mantis 2.x. Works, but still has rough edges on the UI.
+
+After cloning and checking out the branch corresponding to your mantis version, enable the plugin in the *Manage* menu of Mantis.
 
 
 Configuration
