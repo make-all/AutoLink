@@ -40,7 +40,7 @@ function array_object_properties($arr, $prop) {
 
 /* DELETE */
 if ($action == "delete") {
-    $rule_regexps = array_object_properties(AutoLink::clean($rules));
+    $rule_regexps = array_object_properties(AutoLink::clean($rules), 'regexp');
 
     helper_ensure_confirmed(plugin_lang_get("action_delete_confirm") . "<br />" . implode(", ", $rule_regexps), plugin_lang_get("action_delete"));
     AutoLink::delete_by_id(array_keys($rules));
@@ -53,46 +53,49 @@ elseif ($action == "edit") {
     layout_page_header( plugin_lang_get('title') );
 	layout_page_begin();
 ?>
-<br />
-<div id="formatting-config-div" class="form-container">
-<form action="<?php echo plugin_page('rule_list_action')?>" method="post">
-  <?php echo form_security_field("plugin_AutoLink_rule_list_action") ?>
-  <input type="hidden" name="action" value="update"/>
-  <table>
-      <thead>
-      <tr>
-      <td class="form_title" colspan="3"><?php echo plugin_lang_get("edit_title") ?></td>
-      </tr>
-      </thead>
+	<div class="col-md-12 col-xs-12">
+		<div class="space-10"></div>
+		<div id="formatting-config-div" class="form-container">
+			<form action="<?php echo plugin_page('rule_list_action')?>" method="post">
+				<div class="widget-box widget-color-blue2">
+					<div class="widget-header widget-header-small"><h4 class="widget-title lighter"><?php echo plugin_lang_get("edit_title") ?></h4></div>
+					<div class="widget-body">
+						<div class="widget-main no-padding">
+							<div class="table-responsive">
+					<table class="table table-striped table-bordered table-condensed">
+						<?php echo form_security_field("plugin_AutoLink_rule_list_action") ?>
+						<input type="hidden" name="action" value="update"/>
       <tbody>
     <?php $first = true; foreach($rules as $rule): ?>
     <?php if (!$first): ?>
-    <tr class="spacer"><td></td></tr>
+    <tr class="spacer"><td rowspan="2"></td></tr>
     <?php endif ?>
     <tr>
-      <td class="center" rowspan="3"><input type="checkbox" name="rule_list[]" value="<?php echo $rule->id ?>" checked="checked" /></td>
+		<td class="center category" rowspan="3"><label><input type="checkbox" class="ace" name="rule_list[]" value="<?php echo $rule->id ?>" checked="checked" /><span class="lbl"></span></label></td>
       <td class="category"><?php echo plugin_lang_get("rule_project") ?></td>
-    <td><select name="project_<?php echo $rule->id ?>" value="<?php echo $rule->project_id ?>"><?php print_project_option_list($rule->project_id, true) ?></select></td>
+    <td><select class="input-sm" name="project_<?php echo $rule->id ?>" value="<?php echo $rule->project_id ?>"><?php print_project_option_list($rule->project_id, true) ?></select></td>
     </tr>
     <tr>
       <td class="category"><?php echo plugin_lang_get("rule_regexp") ?></td>
-      <td><input name="regexp_<?php echo $rule->id ?>" value="<?php echo $rule->regexp ?>" /></td>
+      <td><input class="form-control" maxlength="500" name="regexp_<?php echo $rule->id ?>" value="<?php echo $rule->regexp ?>" /></td>
     </tr>
     <tr>
       <td class="category"><?php echo plugin_lang_get("rule_replace") ?></td>
-      <td><input name="replace_<?php echo $rule->id ?>" value="<?php echo $rule->replace ?>" /></td>
+      <td><input class="form-control" maxlength="500" name="replace_<?php echo $rule->id ?>" value="<?php echo $rule->replace ?>" /></td>
     </tr>
     <?php $first = false; endforeach ?>
       </tbody>
-      <tfoot>
-    <tr>
-      <td><input type="checkbox" class="rules_select_all" checked="checked" /></td>
-      <td class="center" colspan="2"><input type="submit" value="<?php echo plugin_lang_get('action_edit') ?>" /></td>
-    </tr>
-      </tfoot>
-  </table>
-</form>
-</div>
+					</table>
+							</div>
+						</div>
+						<div class="widget-toolbox padding-8 clearfix">
+							<input type="submit" class="btn btn-primary btn-white btn-round" value="<?php echo plugin_lang_get('action_edit') ?>" />
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
 <?php
 layout_page_end();
 }
