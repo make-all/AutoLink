@@ -40,7 +40,7 @@ function array_object_properties($arr, $prop) {
 
 /* DELETE */
 if ($action == "delete") {
-    $rule_regexps = array_object_properties(AutoLink::clean($rules));
+    $rule_regexps = array_object_properties(AutoLink::clean($rules), 'regexp');
 
     helper_ensure_confirmed(plugin_lang_get("action_delete_confirm") . "<br />" . implode(", ", $rule_regexps), plugin_lang_get("action_delete"));
     AutoLink::delete_by_id(array_keys($rules));
