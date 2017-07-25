@@ -48,5 +48,5 @@ $s_plugin_AutoLink_action_delete_confirm = 'Do you really want to delete the fol
 $s_plugin_AutoLink_edit_title = 'Edit Auto Links';
 $s_plugin_AutoLink_error_regexp_empty = 'The Auto Link pattern is empty.';
 $s_plugin_AutoLink_error_replace_empty = 'The Auto Link replacement is empty.';
-$s_plugin_AutoLink_config_title = "Auto Link Configuration";
+$s_plugin_AutoLink_config_title = 'Auto Link Configuration';
 $s_plugin_AutoLink_edit_threshold = 'Edit Auto Link Rules';
