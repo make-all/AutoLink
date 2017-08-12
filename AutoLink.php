@@ -35,7 +35,7 @@ class AutoLinkPlugin extends MantisFormattingPlugin {
         );
         $this->author = 'The Maker';
         $this->contact = 'make-all@users.github.com';
-        $this->url = 'https://.github.com/make-all/AutoLink';
+        $this->url = 'https://github.com/make-all/AutoLink';
     }
 
     function config() {
