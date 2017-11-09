@@ -16,9 +16,9 @@ Clone this repository to a subdirectory inside your Mantis plugins directory.
 	git clone https://github.com/make-all/AutoLink.git
 
 The following branches are available:
-mantis-1.2.x: Obsolete. No further changes are planned on this branch.
-mantis-1.3.x: Working, bugfixes for this branch will be accepted.
-master: Work in progress for mantis 2.x. Works, but still has rough edges on the UI.
+* mantis-1.2.x: Obsolete. No further changes are planned on this branch.
+* mantis-1.3.x: Working, bugfixes for this branch will be accepted.
+* master: Work in progress for mantis 2.x. Works, but still has rough edges on the UI.
 
 After cloning and checking out the branch corresponding to your mantis version, enable the plugin in the *Manage* menu of Mantis.
 
@@ -44,6 +44,7 @@ Examples
 1) To replace `[[WikiLink]]` with a link to Wikipedia.
 
 **Pattern:** `\[\[(.*)\]\]`
+
 **Replacement:** `<a href="http://en.wikipedia.com/wiki/$1">$1</a>`
 
 
