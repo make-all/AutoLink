@@ -18,7 +18,7 @@ Clone this repository to a subdirectory inside your Mantis plugins directory.
 The following branches are available:
 * mantis-1.2.x: Obsolete. No further changes are planned on this branch.
 * mantis-1.3.x: Working, bugfixes for this branch will be accepted.
-* master: Work in progress for mantis 2.x. Works, but still has rough edges on the UI.
+* master: Working, main development focus is on this branch.
 
 After cloning and checking out the branch corresponding to your mantis version, enable the plugin in the *Manage* menu of Mantis.
 
@@ -26,7 +26,7 @@ After cloning and checking out the branch corresponding to your mantis version, 
 Configuration
 -------------
 
-There are a number of global options, which are inherited from the *MantisFormattingPlugin*. If you have enabled any other formatting plugin, you probably need to disable some of these to avoid double processing.
+NOTE: There are a number of global options, which are inherited from the *MantisFormattingPlugin*. If you have enabled any other formatting plugin, you probably need to disable some of these to avoid double processing.
 
 In addition to the global options, the main purpose of this plugin is to create rules for detecting text patterns and reformatting them. Typically the reformatting will be to create links to external systems such as wiki's, third party bugtrackers, test management systems etc, but the plugin is flexible enough that any kind of formatting or text replacement can be handled, so it could for example be used to insert emoji glyphs for certain keywords if you are so inclined.
 
@@ -43,7 +43,7 @@ Examples
 
 1) To replace `[[WikiLink]]` with a link to Wikipedia.
 
-**Pattern:** `\[\[(.*)\]\]`
+**Pattern:** `/\[\[(.*)\]\]/`
 
 **Replacement:** `<a href="http://en.wikipedia.com/wiki/$1">$1</a>`
 
@@ -51,13 +51,13 @@ Examples
 2) To replace BUG-1234 with a link to bug number 1234 in the main mantis
 project bug tracker:
 
-**Pattern:** `BUG-([0-9]+)`
+**Pattern:** `/\bBUG-([0-9]+\b/)`
 
 **Replacement:** `<a href="http://www.mantisbt.org/bugs/view.php?id=$1">$0</a>`
 
 
 3) To replace {bug} with an emoji bug,
 
-**Pattern:** `\{bug\}`
+**Pattern:** `/\{bug\}/`
 
 **Replacement:** `&#128027;`
